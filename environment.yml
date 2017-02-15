@@ -1,0 +1,21 @@
+name: DataWarehouseExports
+channels: !!python/tuple
+- conda-forge
+- defaults
+dependencies:
+- conda-forge::certifi=2017.1.23=py35_0
+- conda-forge::pandas=0.19.2=np111py35_1
+- conda-forge::pip=8.1.2=py35_0
+- conda-forge::python=3.5.2=0
+- conda-forge::python-dateutil=2.6.0=py35_0
+- conda-forge::pytz=2016.10=py35_0
+- conda-forge::setuptools=25.1.6=py35_0
+- conda-forge::six=1.10.0=py35_1
+- conda-forge::sqlalchemy=1.1.5=py35_0
+- conda-forge::wheel=0.29.0=py35_0
+- conda-forge::wincertstore=0.2=py35_0
+- mkl=2017.0.1=0
+- numpy=1.11.3=py35_0
+- pyodbc=3.0.10=py35_0
+prefix: C:\Anaconda3\envs\DataWarehouseExports
+
