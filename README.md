@@ -1,5 +1,6 @@
 # data-warehouse-exports
 
+Repository in which live python files that run (on an regular schedule) to export data from the Financial Data Warehouse
 
 
 ## How to run locally 
