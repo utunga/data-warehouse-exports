@@ -27,12 +27,29 @@ If(-Not($environment_name))
     $environment_name =  "DataWarehouseExports"
 }
 
-#NB Write-Host not supported by (MS Standard Task) PowerShellOnTargetMachines.ps1
+#NB Write-Host not supported by (MS Standard Task) PowerShellOnTargetMachines.ps1 so Write-Verbose instead
 
-Write-Verbose "Removing existing conda virtual environment if any"
-Invoke-Expression "conda remove -n DataWarehouseExports --yes --all"
+Try{
+    Write-Verbose "Removing existing conda virtual environment if any"
+    $output = conda remove -n DataWarehouseExports --yes --all 2>&1
+    Write-Verbose $output
+    
+}
+Catch{
+    $time_stamp = Get-Date -format yyyyMMddHHmmss
+    Write-Verbose "FAIL - $time_stamp - $Error[0]"
+}
+  
 
-Write-Verbose "Setting up python environment/dependencies per $scripts_path\environment.yml"
-Invoke-Expression "conda env create -f $scripts_path\environment.yml"
+Try{
+    Write-Verbose "Setting up python environment/dependencies per $scripts_path\environment.yml"
+    $output = conda env create -f $scripts_path\environment.yml 2>&1
+    Write-Verbose $output
+}
+Catch{
+    $time_stamp = Get-Date -format yyyyMMddHHmmss
+    Write-Verbose "FAIL - $time_stamp - $Error[0]"
+}
+
 
 Write-Verbose "Done."
