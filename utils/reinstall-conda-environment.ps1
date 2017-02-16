@@ -27,12 +27,13 @@ If(-Not($environment_name))
     $environment_name =  "DataWarehouseExports"
 }
 
+#NB Write-Host not supported by (MS Standard Task) PowerShellOnTargetMachines.ps1
 
-Write-Host "Removing existing conda virtual environment if any"
+Write-Verbose "Removing existing conda virtual environment if any"
 Invoke-Expression "conda remove -n DataWarehouseExports --yes --all"
 
-Write-Host "Setting up python environment/dependencies per $scripts_path\environment.yml"
+Write-Verbose "Setting up python environment/dependencies per $scripts_path\environment.yml"
 Invoke-Expression "conda env create -f $scripts_path\environment.yml"
 
 
-Write-Host "Done."
+Write-Verbose "Done."
