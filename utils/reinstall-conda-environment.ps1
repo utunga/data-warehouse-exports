@@ -35,5 +35,4 @@ Invoke-Expression "conda remove -n DataWarehouseExports --yes --all"
 Write-Verbose "Setting up python environment/dependencies per $scripts_path\environment.yml"
 Invoke-Expression "conda env create -f $scripts_path\environment.yml"
 
-
 Write-Verbose "Done."
